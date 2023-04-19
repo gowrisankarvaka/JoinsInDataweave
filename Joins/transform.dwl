@@ -19,7 +19,7 @@ var lookup = [
 ]
 output application/json  
 ---
-outerJoin(payload,lookup, (payload)-> payload.AccountId, (lookup)-> lookup.AccountId__c) map (item,index) ->
+join(payload,lookup, (payload)-> payload.AccountId, (lookup)-> lookup.AccountId__c) map (item,index) ->
 {
    (item.l  update {
        case .RecordId -> item.r.RecordId  default $
