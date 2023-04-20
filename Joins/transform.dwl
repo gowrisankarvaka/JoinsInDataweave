@@ -19,7 +19,7 @@ var lookup = [
 ]
 output application/json  
 ---
-//updating the input values where AccountId and Company with variable values of AccountId and company
+//updating the input values of RecordId and Company based on AccountId, with variable values of RecordId and company
 //join used to update data and printing only matching values like in database
 /*join(payload,lookup, (payload)-> payload.AccountId, (lookup)-> lookup.AccountId__c) map (item,index) ->
 {
