@@ -19,14 +19,17 @@ var lookup = [
 ]
 output application/json  
 ---
-join(payload,lookup, (payload)-> payload.AccountId, (lookup)-> lookup.AccountId__c) map (item,index) ->
+//updating the input values where AccountId and Company with variable values of AccountId and company
+//join used to update data and printing only matching values like in database
+/*join(payload,lookup, (payload)-> payload.AccountId, (lookup)-> lookup.AccountId__c) map (item,index) ->
 {
-   (item.l  update {
-       case .RecordId -> item.r.RecordId  default $
-       case .Company -> item.r.Company  default $
-   })
-}
+  (item.l  update {
+    case .RecordId -> item.r.RecordId  default $
+    case .Company -> item.r.Company  default $
+  })
+}*/
 
+//outerJoin used to update data and printing all updated data and with an extra empty object
 /*outerJoin(payload,lookup, (payload)-> payload.AccountId, (lookup)-> lookup.AccountId__c) map (item,index) ->
 {
    (item.l  update {
@@ -35,11 +38,11 @@ join(payload,lookup, (payload)-> payload.AccountId, (lookup)-> lookup.AccountId_
    })
 } 
 */
-/*
+//leftJoin used to update data and printing all updated data
 leftJoin(payload, lookup, (payload)->payload.AccountId, (lookup)-> lookup.AccountId__c) map ((item, index) ->
     item.l  update {
         case .RecordId -> item.r.RecordId default $
         case .Company -> item.r.Company default $
     }
  )
-*/
+
